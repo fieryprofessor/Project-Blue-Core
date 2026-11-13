@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://k7a0r4570214"
+path="res://.godot/imported/06 - MegamanLand.wav-279065c28feca133ea74490f2819f5db.sample"
+
+[deps]
+
+source_file="res://assets/mm1sounds/06 - MegamanLand.wav"
+dest_files=["res://.godot/imported/06 - MegamanLand.wav-279065c28feca133ea74490f2819f5db.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

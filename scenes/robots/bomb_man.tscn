@@ -1,0 +1,88 @@
+[gd_scene load_steps=10 format=3 uid="uid://cp6k4uadu8g83"]
+
+[ext_resource type="Texture2D" uid="uid://cipxgmnuql17b" path="res://assets/mm1pngs/bombsheet.png" id="1_bjsqy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6eks5"]
+atlas = ExtResource("1_bjsqy")
+region = Rect2(225, 4, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srrcl"]
+atlas = ExtResource("1_bjsqy")
+region = Rect2(256, 4, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtq02"]
+atlas = ExtResource("1_bjsqy")
+region = Rect2(293, 3, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3sghl"]
+atlas = ExtResource("1_bjsqy")
+region = Rect2(86, 4, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3p06y"]
+atlas = ExtResource("1_bjsqy")
+region = Rect2(119, 4, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lh6le"]
+atlas = ExtResource("1_bjsqy")
+region = Rect2(153, 4, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35xip"]
+atlas = ExtResource("1_bjsqy")
+region = Rect2(190, 4, 33, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mthcw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6eks5")
+}],
+"loop": true,
+"name": &"jump1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srrcl")
+}],
+"loop": true,
+"name": &"jump2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtq02")
+}],
+"loop": true,
+"name": &"jump3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3sghl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3p06y")
+}],
+"loop": true,
+"name": &"pose",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lh6le")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35xip")
+}],
+"loop": true,
+"name": &"throw",
+"speed": 5.0
+}]
+
+[node name="bomb_man" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mthcw")
+animation = &"jump3"

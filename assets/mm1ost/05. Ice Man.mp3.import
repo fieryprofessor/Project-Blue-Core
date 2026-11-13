@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bom44fybmvs7h"
+path="res://.godot/imported/05. Ice Man.mp3-f071a542e48ad4881190a31fe6fa78fd.mp3str"
+
+[deps]
+
+source_file="res://assets/mm1ost/05. Ice Man.mp3"
+dest_files=["res://.godot/imported/05. Ice Man.mp3-f071a542e48ad4881190a31fe6fa78fd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

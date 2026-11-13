@@ -1,0 +1,93 @@
+[gd_scene load_steps=10 format=3 uid="uid://cuor5x3w4u2he"]
+
+[ext_resource type="Texture2D" uid="uid://bwyiugn3hfbvj" path="res://assets/mm1pngs/gutssheet.png" id="1_tfphq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfphq"]
+atlas = ExtResource("1_tfphq")
+region = Rect2(197, 0, 51, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evlxj"]
+atlas = ExtResource("1_tfphq")
+region = Rect2(82, 29, 37, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ytnak"]
+atlas = ExtResource("1_tfphq")
+region = Rect2(1, 29, 37, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5au2a"]
+atlas = ExtResource("1_tfphq")
+region = Rect2(43, 29, 37, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrkli"]
+atlas = ExtResource("1_tfphq")
+region = Rect2(122, 28, 37, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ca0r2"]
+atlas = ExtResource("1_tfphq")
+region = Rect2(162, 29, 37, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8016m"]
+atlas = ExtResource("1_tfphq")
+region = Rect2(253, 29, 37, 35)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_evlxj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfphq")
+}],
+"loop": true,
+"name": &"assembled",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evlxj")
+}],
+"loop": true,
+"name": &"duck",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ytnak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5au2a")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nrkli")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ca0r2")
+}],
+"loop": true,
+"name": &"super_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8016m")
+}],
+"loop": true,
+"name": &"throw",
+"speed": 5.0
+}]
+
+[node name="guts_man" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_evlxj")
+animation = &"assembled"

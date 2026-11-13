@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://2b5ocmkjt0nk"]
+
+[ext_resource type="Script" uid="uid://delfdy7wq7l1u" path="res://scenes/MainMenus/stage_slot.gd" id="1_itsmx"]
+[ext_resource type="Texture2D" uid="uid://cgpkjswfahbt3" path="res://assets/mm1pngs/MM1miscsheet.png" id="1_on3ld"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_itsmx"]
+atlas = ExtResource("1_on3ld")
+region = Rect2(265, 6, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81cwx"]
+atlas = ExtResource("1_on3ld")
+region = Rect2(266, 69, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_apkdb"]
+atlas = ExtResource("1_on3ld")
+region = Rect2(265, 6, 46, 46)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0cmv6"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_itsmx")
+}],
+"loop": true,
+"name": &"not_selected",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_81cwx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_apkdb")
+}],
+"loop": true,
+"name": &"selected",
+"speed": 5.0
+}]
+
+[node name="StageSlot" type="Node2D"]
+script = ExtResource("1_itsmx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-41, 6)
+
+[node name="BorderFrame" type="AnimatedSprite2D" parent="."]
+position = Vector2(-26, 21)
+sprite_frames = SubResource("SpriteFrames_0cmv6")
+animation = &"selected"
+frame = 1
+frame_progress = 0.18441333
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -42.0
+offset_top = 5.0
+offset_right = -10.0
+offset_bottom = 37.0
+color = Color(0.8392157, 0.95686275, 0.24313726, 1)

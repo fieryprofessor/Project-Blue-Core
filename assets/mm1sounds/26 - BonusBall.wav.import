@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://syrl4onk63n2"
+path="res://.godot/imported/26 - BonusBall.wav-94cea87058bf8ddeeea0ea44de2fbf38.sample"
+
+[deps]
+
+source_file="res://assets/mm1sounds/26 - BonusBall.wav"
+dest_files=["res://.godot/imported/26 - BonusBall.wav-94cea87058bf8ddeeea0ea44de2fbf38.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

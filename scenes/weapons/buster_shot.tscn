@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b187vod3x7kp6"]
+
+[ext_resource type="Script" uid="uid://wwbtbiy5bkam" path="res://scripts/weapons/buster_shot.gd" id="1_vfjse"]
+[ext_resource type="Texture2D" uid="uid://rcxmywe8ewyl" path="res://assets/mm1pngs/mm1weaponsheet.png" id="2_xuakf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xuakf"]
+radius = 4.0
+height = 8.0
+
+[node name="BusterShot" type="Area2D"]
+script = ExtResource("1_vfjse")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_xuakf")
+region_enabled = true
+region_rect = Rect2(253.52277, 12.188309, 9.670807, 7.7366486)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.3, 0)
+scale = Vector2(1.06, 0.8)
+shape = SubResource("CapsuleShape2D_xuakf")
+debug_color = Color(0.33098155, 0.00060798763, 0.9010121, 0.41960785)

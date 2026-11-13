@@ -1,0 +1,100 @@
+[gd_scene load_steps=11 format=3 uid="uid://bjtatpbcvvj0j"]
+
+[ext_resource type="Texture2D" uid="uid://bmkke7pi56h20" path="res://assets/mm1pngs/icesheet.png" id="1_o027f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ihhq"]
+atlas = ExtResource("1_o027f")
+region = Rect2(1, 0, 29, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7ojq"]
+atlas = ExtResource("1_o027f")
+region = Rect2(99, 0, 30, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yi4tq"]
+atlas = ExtResource("1_o027f")
+region = Rect2(33, 0, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_du2vr"]
+atlas = ExtResource("1_o027f")
+region = Rect2(66, 0, 33, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1ivo"]
+atlas = ExtResource("1_o027f")
+region = Rect2(222, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_envgn"]
+atlas = ExtResource("1_o027f")
+region = Rect2(129, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e4ou0"]
+atlas = ExtResource("1_o027f")
+region = Rect2(159, 0, 30, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4fibh"]
+atlas = ExtResource("1_o027f")
+region = Rect2(189, 0, 30, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p1um4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ihhq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7ojq")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yi4tq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_du2vr")
+}],
+"loop": true,
+"name": &"pose",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p1ivo")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_envgn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e4ou0")
+}],
+"loop": true,
+"name": &"skate",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4fibh")
+}],
+"loop": true,
+"name": &"slide",
+"speed": 5.0
+}]
+
+[node name="ice_man" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_p1um4")
+animation = &"slide"

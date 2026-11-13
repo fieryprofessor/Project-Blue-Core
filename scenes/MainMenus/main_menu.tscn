@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://ciikyp7ghrjgk"]
+
+[ext_resource type="Script" uid="uid://bnj1lcs7ttv65" path="res://scripts/MainMenus/main_menu.gd" id="1_2o6mk"]
+[ext_resource type="Texture2D" uid="uid://cqd06qm3i6ve2" path="res://assets/mm1pngs/Mega_man_in-game_logo.png" id="2_phb0m"]
+[ext_resource type="FontFile" uid="uid://dfmbptti30d8l" path="res://fonts/the-rockman-font.ttf/the-rockman-font.ttf" id="3_4f454"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_2o6mk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Logo" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(394, 204)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_phb0m")
+
+[node name="StartText" type="Label" parent="CanvasLayer"]
+offset_left = 205.0
+offset_top = 470.0
+offset_right = 607.0
+offset_bottom = 502.0
+theme_override_fonts/font = ExtResource("3_4f454")
+theme_override_font_sizes/font_size = 32
+text = "PRESS START"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Credit" type="Label" parent="CanvasLayer"]
+offset_left = 85.0
+offset_top = 601.0
+offset_right = 707.0
+offset_bottom = 633.0
+theme_override_fonts/font = ExtResource("3_4f454")
+theme_override_font_sizes/font_size = 32
+text = "©2026 NINJA_PLAYS"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://xico8jh3l6o7"
+path="res://.godot/imported/20 - IceSlasher.wav-d91c0e51d6e9fea2f3bfe19d56444783.sample"
+
+[deps]
+
+source_file="res://assets/mm1sounds/20 - IceSlasher.wav"
+dest_files=["res://.godot/imported/20 - IceSlasher.wav-d91c0e51d6e9fea2f3bfe19d56444783.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

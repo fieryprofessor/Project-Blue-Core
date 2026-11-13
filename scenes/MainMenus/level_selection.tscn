@@ -1,0 +1,118 @@
+[gd_scene load_steps=19 format=3 uid="uid://dbq5jm7h54iwt"]
+
+[ext_resource type="Script" uid="uid://tx1hpv66lxue" path="res://scenes/MainMenus/level_select.gd" id="1_ir275"]
+[ext_resource type="Texture2D" uid="uid://cgpkjswfahbt3" path="res://assets/mm1pngs/MM1miscsheet.png" id="1_m8pm6"]
+[ext_resource type="PackedScene" uid="uid://cmc3s4s6omqqk" path="res://scenes/robots/cut_man.tscn" id="2_abja0"]
+[ext_resource type="PackedScene" uid="uid://cuor5x3w4u2he" path="res://scenes/robots/guts_man.tscn" id="3_u5wmy"]
+[ext_resource type="PackedScene" uid="uid://2b5ocmkjt0nk" path="res://scenes/MainMenus/stage_slot.tscn" id="3_wby30"]
+[ext_resource type="Texture2D" uid="uid://cnpbt2itb7282" path="res://assets/mm1pngs/cutsheet.png" id="4_1duus"]
+[ext_resource type="PackedScene" uid="uid://bjtatpbcvvj0j" path="res://scenes/robots/ice_man.tscn" id="4_kxeut"]
+[ext_resource type="Texture2D" uid="uid://bwyiugn3hfbvj" path="res://assets/mm1pngs/gutssheet.png" id="5_q8bi0"]
+[ext_resource type="PackedScene" uid="uid://cp6k4uadu8g83" path="res://scenes/robots/bomb_man.tscn" id="5_rs5s1"]
+[ext_resource type="PackedScene" uid="uid://dv51k2jkfs7mw" path="res://scenes/robots/fire_man.tscn" id="6_m5o8c"]
+[ext_resource type="Texture2D" uid="uid://c8q0v3eb2p7ee" path="res://assets/mm1pngs/elecsheet.png" id="6_o6s5e"]
+[ext_resource type="Texture2D" uid="uid://bmkke7pi56h20" path="res://assets/mm1pngs/icesheet.png" id="7_01145"]
+[ext_resource type="PackedScene" uid="uid://bdxdje7iottqk" path="res://scenes/robots/elec_man.tscn" id="7_lqj8i"]
+[ext_resource type="Texture2D" uid="uid://dt8241xodrqht" path="res://assets/mm1pngs/firesheet.png" id="8_bs78b"]
+[ext_resource type="Texture2D" uid="uid://cipxgmnuql17b" path="res://assets/mm1pngs/bombsheet.png" id="9_3tm6q"]
+[ext_resource type="Script" uid="uid://0h508dw175kb" path="res://scripts/MainMenus/stage_slot.gd" id="10_u5wmy"]
+[ext_resource type="AudioStream" uid="uid://vaf2p1h3nubl" path="res://assets/mm1ost/StageSelectEdited.wav" id="17_kxeut"]
+[ext_resource type="AudioStream" uid="uid://bdchwrdwob8m8" path="res://assets/mm1sounds/03 - MenuSelect.wav" id="18_rs5s1"]
+
+[node name="LevelSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ir275")
+boss_scenes = Array[PackedScene]([ExtResource("2_abja0"), ExtResource("3_u5wmy"), ExtResource("4_kxeut"), ExtResource("5_rs5s1"), ExtResource("6_m5o8c"), ExtResource("7_lqj8i")])
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(386.00003, 360.00003)
+scale = Vector2(3.014, 3.215)
+texture = ExtResource("1_m8pm6")
+region_enabled = true
+region_rect = Rect2(3, 2, 256, 224)
+
+[node name="Slots" type="Node2D" parent="."]
+
+[node name="CutManSlot" parent="Slots" instance=ExtResource("3_wby30")]
+position = Vector2(368, 69)
+scale = Vector2(3, 3)
+script = ExtResource("10_u5wmy")
+stage_scene_path = "uid://cbxdsr5i27jfp"
+
+[node name="cut_man" type="Sprite2D" parent="Slots/CutManSlot"]
+position = Vector2(-25.666668, 21)
+texture = ExtResource("4_1duus")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(5, 5, 24, 32)
+
+[node name="GutsManSlot" parent="Slots" instance=ExtResource("3_wby30")]
+position = Vector2(557, 70)
+scale = Vector2(3, 3)
+script = ExtResource("10_u5wmy")
+stage_scene_path = "uid://cc13b1uur18pk"
+
+[node name="guts_man" type="Sprite2D" parent="Slots/GutsManSlot"]
+position = Vector2(-25.7, 23.333)
+texture = ExtResource("5_q8bi0")
+region_enabled = true
+region_rect = Rect2(85, 35, 31, 29)
+
+[node name="IceManSlot" parent="Slots" instance=ExtResource("3_wby30")]
+position = Vector2(658, 278)
+scale = Vector2(3, 3)
+script = ExtResource("10_u5wmy")
+stage_scene_path = "uid://welnhgq4xjyy"
+
+[node name="ice_man" type="Sprite2D" parent="Slots/IceManSlot"]
+position = Vector2(-25.333334, 25)
+texture = ExtResource("7_01145")
+region_enabled = true
+region_rect = Rect2(4, 8, 24, 24)
+
+[node name="BombManSlot" parent="Slots" instance=ExtResource("3_wby30")]
+position = Vector2(554, 482)
+scale = Vector2(3, 3)
+script = ExtResource("10_u5wmy")
+stage_scene_path = "uid://vywd7583xsqk"
+
+[node name="bomb_man" type="Sprite2D" parent="Slots/BombManSlot"]
+position = Vector2(-26.333334, 25)
+texture = ExtResource("9_3tm6q")
+region_enabled = true
+region_rect = Rect2(123, 12, 24, 24)
+
+[node name="FireManSlot" parent="Slots" instance=ExtResource("3_wby30")]
+position = Vector2(364, 483.00003)
+scale = Vector2(3, 3)
+script = ExtResource("10_u5wmy")
+stage_scene_path = "uid://c7y4kc16khil5"
+
+[node name="fire_man" type="Sprite2D" parent="Slots/FireManSlot"]
+position = Vector2(-26.333334, 21.666656)
+texture = ExtResource("8_bs78b")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(31, 11, 24, 31)
+
+[node name="ElecManSlot" parent="Slots" instance=ExtResource("3_wby30")]
+position = Vector2(265, 276)
+scale = Vector2(3, 3)
+script = ExtResource("10_u5wmy")
+stage_scene_path = "uid://2y1dylxovvhu"
+
+[node name="elec_man" type="Sprite2D" parent="Slots/ElecManSlot"]
+position = Vector2(-26.333334, 25)
+texture = ExtResource("6_o6s5e")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(5, 9, 24, 24)
+
+[node name="StageSelectMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_kxeut")
+
+[node name="SelectSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_rs5s1")

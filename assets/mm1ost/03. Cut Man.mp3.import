@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://g8u4ty4j5pif"
+path="res://.godot/imported/03. Cut Man.mp3-124bb7f0be51f524b19fcd8271648cc0.mp3str"
+
+[deps]
+
+source_file="res://assets/mm1ost/03. Cut Man.mp3"
+dest_files=["res://.godot/imported/03. Cut Man.mp3-124bb7f0be51f524b19fcd8271648cc0.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

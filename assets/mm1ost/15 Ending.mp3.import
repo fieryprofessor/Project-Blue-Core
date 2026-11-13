@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c12qapf72mj14"
+path="res://.godot/imported/15 Ending.mp3-acb14ca06e9fd638942a07461ef859cb.mp3str"
+
+[deps]
+
+source_file="res://assets/mm1ost/15 Ending.mp3"
+dest_files=["res://.godot/imported/15 Ending.mp3-acb14ca06e9fd638942a07461ef859cb.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

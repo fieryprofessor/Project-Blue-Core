@@ -1,0 +1,97 @@
+[gd_scene load_steps=11 format=3 uid="uid://bdxdje7iottqk"]
+
+[ext_resource type="Texture2D" uid="uid://c8q0v3eb2p7ee" path="res://assets/mm1pngs/elecsheet.png" id="1_qr14a"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ltfu4"]
+atlas = ExtResource("1_qr14a")
+region = Rect2(1, 0, 31, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tcd71"]
+atlas = ExtResource("1_qr14a")
+region = Rect2(109, 0, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_topq2"]
+atlas = ExtResource("1_qr14a")
+region = Rect2(38, 0, 31, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mptc0"]
+atlas = ExtResource("1_qr14a")
+region = Rect2(75, 0, 31, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b02ua"]
+atlas = ExtResource("1_qr14a")
+region = Rect2(207, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqoa4"]
+atlas = ExtResource("1_qr14a")
+region = Rect2(245, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qqmo"]
+atlas = ExtResource("1_qr14a")
+region = Rect2(142, 0, 31, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lgji4"]
+atlas = ExtResource("1_qr14a")
+region = Rect2(176, 0, 31, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7n4f0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ltfu4")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tcd71")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_topq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mptc0")
+}],
+"loop": true,
+"name": &"pose",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b02ua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqoa4")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qqmo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lgji4")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="elec_man" type="CharacterBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_7n4f0")
+animation = &"pose"
+frame = 1
+frame_progress = 0.2891903

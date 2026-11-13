@@ -1,0 +1,14 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+# Imported and generated cache files
+.import/
+# Editor temporary files
+*.tmp
+*.bak
+# Operating system files
+.DS_Store
+Thumbs.db
+# IDE settings
+.vscode/
+.idea/
