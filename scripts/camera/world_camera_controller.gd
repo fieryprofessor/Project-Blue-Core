@@ -94,16 +94,8 @@ func _process(delta: float) -> void:
 
 
 func _find_player() -> CharacterBody2D:
-	# The spawned player is expected to be a direct child
-	# of the stage, regardless of its node name.
-	var stage = get_parent()
+	return get_tree().get_first_node_in_group("player") as CharacterBody2D
 
-	for child in stage.get_children():
-		if child is CharacterBody2D:
-			print("Player detected: ", child.name)
-			return child as CharacterBody2D
-
-	return null
 
 
 func _find_room_at_position(

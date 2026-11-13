@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://2b5ocmkjt0nk"]
 
-[ext_resource type="Script" uid="uid://delfdy7wq7l1u" path="res://scenes/MainMenus/stage_slot.gd" id="1_itsmx"]
+[ext_resource type="Script" uid="uid://0h508dw175kb" path="res://scripts/MainMenus/stage_slot.gd" id="1_itsmx"]
 [ext_resource type="Texture2D" uid="uid://cgpkjswfahbt3" path="res://assets/mm1pngs/MM1miscsheet.png" id="1_on3ld"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_itsmx"]

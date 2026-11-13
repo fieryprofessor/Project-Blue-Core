@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://cbxdsr5i27jfp"]
+[gd_scene load_steps=39 format=4 uid="uid://cbxdsr5i27jfp"]
 
 [ext_resource type="Script" uid="uid://bwse2k78mwb1k" path="res://scripts/bosses/cut_man_stage.gd" id="1_ambb6"]
 [ext_resource type="Texture2D" uid="uid://cjt2ebgvoafjy" path="res://assets/mm1pngs/mm1cuttiles.png" id="2_hrcoc"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://d3twfcgwpp8c7" path="res://scripts/camera/world_camera_controller.gd" id="4_ambb6"]
 [ext_resource type="FontFile" uid="uid://dfmbptti30d8l" path="res://fonts/the-rockman-font.ttf/the-rockman-font.ttf" id="5_euuqa"]
 [ext_resource type="AudioStream" uid="uid://g8u4ty4j5pif" path="res://assets/mm1ost/03. Cut Man.mp3" id="6_wskq1"]
+[ext_resource type="PackedScene" uid="uid://bui14316hvgmx" path="res://scenes/enemies/bunby_heli.tscn" id="7_phpx0"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_hrcoc"]
 tile_data = PackedInt32Array(0, 196608, 0, 1, 262144, 0)
@@ -310,3 +311,6 @@ vertical_alignment = 1
 [node name="CutManStageMusic" type="AudioStreamPlayer2D" parent="."]
 process_mode = 3
 stream = ExtResource("6_wskq1")
+
+[node name="BunbyHeli" parent="." instance=ExtResource("7_phpx0")]
+position = Vector2(826, 108)

@@ -69,6 +69,10 @@ func _display_boss() -> void:
 	# Instantiate the selected boss.
 	var boss = selected_boss_scene.instantiate()
 	boss_container.add_child(boss)
+	print("Boss scene: ", selected_boss_scene.resource_path)
+	print("Boss root: ", boss.name)
+	print("Boss children: ", boss.get_children())
+	print("AnimatedSprite2D: ", boss.get_node_or_null("AnimatedSprite2D"))
 
 	if boss is Node2D:
 		boss.position = Vector2.ZERO
