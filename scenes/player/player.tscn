@@ -245,7 +245,6 @@ script = ExtResource("1_dovo2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(1, 1.241)
-zoom = Vector2(3, 3)
 limit_enabled = false
 limit_left = 0
 limit_top = -2500

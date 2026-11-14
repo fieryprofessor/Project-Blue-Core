@@ -14,29 +14,29 @@ script = ExtResource("1_35ti8")
 [node name="Background" type="ColorRect" parent="."]
 z_index = -2
 layout_mode = 0
-offset_right = 386.0
-offset_bottom = 360.0
-scale = Vector2(1.99, 2)
+offset_right = 129.0
+offset_bottom = 120.0
+scale = Vector2(1.989321, 1.6000767)
 color = Color(9.914935e-06, 0.40032792, 0.86413264, 1)
 
 [node name="BossContainer" type="Node2D" parent="."]
-position = Vector2(307, 231)
+position = Vector2(81, 56)
 
 [node name="BossName" type="Label" parent="."]
 layout_mode = 0
-offset_left = 434.0
-offset_top = 212.0
-offset_right = 474.0
-offset_bottom = 257.0
+offset_left = 169.0
+offset_top = 43.0
+offset_right = 209.0
+offset_bottom = 88.0
 theme_override_fonts/font = ExtResource("2_yce58")
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 8
 
 [node name="ColorBox" type="ColorRect" parent="."]
 z_index = -1
 layout_mode = 0
-offset_top = 119.0
-offset_right = 40.0
-offset_bottom = 159.0
+offset_top = 26.0
+offset_right = 13.4
+offset_bottom = 36.0
 scale = Vector2(19.2, 6.9200006)
 color = Color(0.09803922, 0.5686275, 0.19607843, 1)
 

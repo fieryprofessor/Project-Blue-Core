@@ -81,7 +81,7 @@ func _display_boss() -> void:
 	var boss_sprite = boss.get_node_or_null("AnimatedSprite2D")
 
 	if boss_sprite is AnimatedSprite2D:
-		boss_sprite.scale = Vector2(4.0, 4.0)
+		boss_sprite.scale = Vector2(2.0, 2.0)
 
 		match selected_boss_index:
 			0:

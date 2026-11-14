@@ -2,7 +2,7 @@ extends Area2D
 
 @export_group("Camera Region")
 
-@export var camera_region_size: Vector2 = Vector2(384, 216)
+@export var camera_region_size: Vector2 = Vector2(768, 576)
 
 @export var camera_offset: Vector2 = Vector2.ZERO
 

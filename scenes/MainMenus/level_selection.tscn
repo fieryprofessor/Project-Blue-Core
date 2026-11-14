@@ -21,23 +21,25 @@
 [node name="LevelSelection" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 0.9999999
+offset_top = -1.9999995
+offset_right = 0.9999999
+offset_bottom = -1.9999995
 script = ExtResource("1_iqdbo")
 boss_scenes = Array[PackedScene]([ExtResource("2_kxeut"), ExtResource("3_rs5s1"), ExtResource("4_m5o8c"), ExtResource("5_lqj8i"), ExtResource("6_f5715"), ExtResource("7_wyxc7")])
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(386.00003, 360.00003)
-scale = Vector2(3.014, 3.215)
+position = Vector2(127, 97)
+scale = Vector2(1, 0.856)
 texture = ExtResource("1_m8pm6")
 region_enabled = true
 region_rect = Rect2(3, 2, 256, 224)
 
 [node name="Slots" type="Node2D" parent="."]
+position = Vector2(9, 9)
 
 [node name="CutManSlot" parent="Slots" instance=ExtResource("3_wby30")]
-position = Vector2(368, 69)
-scale = Vector2(3, 3)
+position = Vector2(111, 2)
 stage_scene_path = "uid://cbxdsr5i27jfp"
 
 [node name="cut_man" type="Sprite2D" parent="Slots/CutManSlot"]
@@ -48,8 +50,7 @@ region_enabled = true
 region_rect = Rect2(5, 5, 24, 32)
 
 [node name="GutsManSlot" parent="Slots" instance=ExtResource("3_wby30")]
-position = Vector2(557, 70)
-scale = Vector2(3, 3)
+position = Vector2(175, 1.9999995)
 stage_scene_path = "uid://cc13b1uur18pk"
 
 [node name="guts_man" type="Sprite2D" parent="Slots/GutsManSlot"]
@@ -59,8 +60,7 @@ region_enabled = true
 region_rect = Rect2(85, 35, 31, 29)
 
 [node name="IceManSlot" parent="Slots" instance=ExtResource("3_wby30")]
-position = Vector2(658, 278)
-scale = Vector2(3, 3)
+position = Vector2(208, 57)
 stage_scene_path = "uid://welnhgq4xjyy"
 
 [node name="ice_man" type="Sprite2D" parent="Slots/IceManSlot"]
@@ -70,8 +70,7 @@ region_enabled = true
 region_rect = Rect2(4, 8, 24, 24)
 
 [node name="BombManSlot" parent="Slots" instance=ExtResource("3_wby30")]
-position = Vector2(554, 482)
-scale = Vector2(3, 3)
+position = Vector2(174, 112)
 stage_scene_path = "uid://vywd7583xsqk"
 
 [node name="bomb_man" type="Sprite2D" parent="Slots/BombManSlot"]
@@ -81,8 +80,7 @@ region_enabled = true
 region_rect = Rect2(123, 12, 24, 24)
 
 [node name="FireManSlot" parent="Slots" instance=ExtResource("3_wby30")]
-position = Vector2(364, 483.00003)
-scale = Vector2(3, 3)
+position = Vector2(110, 112)
 stage_scene_path = "uid://c7y4kc16khil5"
 
 [node name="fire_man" type="Sprite2D" parent="Slots/FireManSlot"]
@@ -93,8 +91,7 @@ region_enabled = true
 region_rect = Rect2(31, 11, 24, 31)
 
 [node name="ElecManSlot" parent="Slots" instance=ExtResource("3_wby30")]
-position = Vector2(265, 276)
-scale = Vector2(3, 3)
+position = Vector2(78, 57)
 stage_scene_path = "uid://2y1dylxovvhu"
 
 [node name="elec_man" type="Sprite2D" parent="Slots/ElecManSlot"]
