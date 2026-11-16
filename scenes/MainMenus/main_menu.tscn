@@ -1,13 +1,30 @@
-[gd_scene load_steps=4 format=3 uid="uid://ciikyp7ghrjgk"]
+[gd_scene load_steps=6 format=3 uid="uid://ciikyp7ghrjgk"]
 
 [ext_resource type="Script" uid="uid://bnj1lcs7ttv65" path="res://scripts/MainMenus/main_menu.gd" id="1_2o6mk"]
 [ext_resource type="Texture2D" uid="uid://cqd06qm3i6ve2" path="res://assets/mm1pngs/Mega_man_in-game_logo.png" id="2_phb0m"]
 [ext_resource type="FontFile" uid="uid://dfmbptti30d8l" path="res://fonts/the-rockman-font.ttf/the-rockman-font.ttf" id="3_4f454"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_4f454"]
+font = ExtResource("3_4f454")
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_ami0h"]
+font = ExtResource("3_4f454")
+font_size = 8
+
 [node name="MainMenu" type="Node2D"]
 script = ExtResource("1_2o6mk")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Logo" type="TextureRect" parent="CanvasLayer"]
+z_index = 1
+offset_left = 50.0
+offset_top = 5.0
+offset_right = 206.0
+offset_bottom = 101.0
+texture = ExtResource("2_phb0m")
+expand_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15
@@ -18,19 +35,15 @@ grow_vertical = 2
 scale = Vector2(0.9999212, 1.0070736)
 color = Color(0, 0, 0, 1)
 
-[node name="Logo" type="Sprite2D" parent="CanvasLayer"]
-position = Vector2(127, 44)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("2_phb0m")
-
 [node name="StartText" type="Label" parent="CanvasLayer"]
-offset_left = 80.0
+offset_left = 50.0
 offset_top = 97.0
-offset_right = 181.0
+offset_right = 206.0
 offset_bottom = 129.0
 theme_override_fonts/font = ExtResource("3_4f454")
 theme_override_font_sizes/font_size = 8
 text = "PRESS START"
+label_settings = SubResource("LabelSettings_4f454")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -42,5 +55,6 @@ offset_bottom = 175.0
 theme_override_fonts/font = ExtResource("3_4f454")
 theme_override_font_sizes/font_size = 8
 text = "©2026 NINJA_PLAYS"
+label_settings = SubResource("LabelSettings_ami0h")
 horizontal_alignment = 1
 vertical_alignment = 1

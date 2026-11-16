@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b2xji0j6vef8m"]
+[gd_scene load_steps=29 format=3 uid="uid://b2xji0j6vef8m"]
 
 [ext_resource type="Texture2D" uid="uid://bl6ytbjchl68j" path="res://assets/mm1pngs/8bitmegaman.png" id="1_8afob"]
 [ext_resource type="Script" uid="uid://drwjcrnvg8pwp" path="res://scripts/player/player.gd" id="1_dovo2"]
@@ -236,6 +236,24 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnsyf"]
+atlas = ExtResource("1_8afob")
+region = Rect2(278, 276, 38, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dovo2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnsyf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnsyf")
+}],
+"loop": true,
+"name": &"damage_effect",
+"speed": 40.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8afob"]
 size = Vector2(7.936508, 18.947367)
 
@@ -255,18 +273,26 @@ position_smoothing_enabled = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 process_mode = 3
 sprite_frames = SubResource("SpriteFrames_lvxji")
-animation = &"teleport"
-frame = 2
-frame_progress = 1.0
+animation = &"damage_taken"
+
+[node name="EffectSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dovo2")
+animation = &"damage_effect"
+frame_progress = 0.233739
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, 7.8)
 scale = Vector2(1.26, 0.95)
 shape = SubResource("RectangleShape2D_8afob")
 debug_color = Color(0.9794771, 0.05049935, 0.34858763, 0.41960785)
 
 [node name="BusterSpawnGround" type="Marker2D" parent="."]
+visible = false
 position = Vector2(15, 5)
 
 [node name="BusterSpawnJump" type="Marker2D" parent="."]
+visible = false
 position = Vector2(15, -2)
+
+[connection signal="frame_changed" from="EffectSprite" to="." method="_on_sprite_frame_changed"]

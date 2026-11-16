@@ -23,6 +23,14 @@ func _physics_process(_delta: float) -> void:
 
 	if player_detected:
 		velocity.x = 0.0
+		var player = get_tree().get_first_node_in_group("player")
+		if player:
+			if player.global_position.x < global_position.x:
+				facing_direction = -1
+				animated_sprite.flip_h = false
+			else:
+				facing_direction = 1
+				animated_sprite.flip_h = true
 	else:
 		velocity.x = move_speed * facing_direction
 
@@ -46,9 +54,6 @@ func give_damage(body: Node2D) -> void:
 		return
 
 	if not body.is_in_group("player"):
-		return
-
-	if body.is_invincible:
 		return
 
 	if body.has_method("take_damage"):
@@ -83,4 +88,5 @@ func die() -> void:
 
 
 func _on_damage_area_body_entered(body: Node2D) -> void:
+	print("damage given: ",damage)
 	give_damage(body)

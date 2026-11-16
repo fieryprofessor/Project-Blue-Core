@@ -1,8 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bui14316hvgmx"]
+[gd_scene load_steps=12 format=3 uid="uid://bui14316hvgmx"]
 
 [ext_resource type="Script" uid="uid://oibhegf5whqr" path="res://scripts/enemies/bunby_heli.gd" id="1_ddrpn"]
 [ext_resource type="Texture2D" uid="uid://rcxmywe8ewyl" path="res://assets/mm1pngs/mm1weaponsheet.png" id="1_mufj1"]
 [ext_resource type="Texture2D" uid="uid://s5igquej4ilt" path="res://assets/mm1pngs/mm1enemysheet.png" id="1_u4iut"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bamrn"]
+size = Vector2(15, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bamrn"]
 atlas = ExtResource("1_mufj1")
@@ -31,7 +34,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"death",
-"speed": 5.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -52,12 +55,20 @@ radius = 87.02299
 size = Vector2(15, 16)
 
 [node name="BunbyHeli" type="CharacterBody2D"]
-collision_layer = 0
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_ddrpn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 2)
+shape = SubResource("RectangleShape2D_bamrn")
+debug_color = Color(0.7270476, 0.36695454, 0.77557635, 0.41960785)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_bamrn")
-animation = &"flying"
+animation = &"death"
+frame = 1
+frame_progress = 1.0
 
 [node name="DetectionArea" type="Area2D" parent="."]
 collision_layer = 0

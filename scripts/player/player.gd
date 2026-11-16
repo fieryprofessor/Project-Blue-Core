@@ -4,7 +4,13 @@ const SPEED: float = 100.0
 const JUMP_VELOCITY: float = -300.0
 const CLIMB_SPEED: float = 80.0
 const FIRE_COOLDOWN: float = 0.25
+const KNOCKBACK_DISTANCE: float = 5.0
+const KNOCKBACK_DURATION: float = 0.5
 
+var controls_disabled: bool = false
+var knockback_timer: float = 0.0
+var knockback_start_position: Vector2
+var knockback_target_position: Vector2
 var is_shooting: bool = false
 var near_ladder: bool = false
 var is_climbing: bool = false
@@ -13,7 +19,10 @@ var facing_direction: int = 1
 var original_collision_layer: int
 var original_collision_mask: int
 var fire_timer: float = 0.0
-
+@export var health: int = 28
+var immunity: bool = false
+const IMMUNITY_DURATION: float = 1.5
+var immunity_timer: float = 0.0
 @export var intro_landing_position: Vector2 = Vector2(139, 144)
 
 var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -28,6 +37,59 @@ var current_state: String = "INTRO_FALL"
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var buster_spawn1: Marker2D = $BusterSpawnGround
 @onready var buster_spawn2: Marker2D = $BusterSpawnJump
+@onready var effectsprite: AnimatedSprite2D = $EffectSprite
+
+
+func _on_sprite_frame_changed():
+	if effectsprite.animation == "damage_effect":
+		if effectsprite.frame % 2 == 0:
+			effectsprite.modulate.a = 0.3
+		else:
+			effectsprite.modulate.a = 0.8
+
+func die() -> void:
+	if health > 0:
+		return
+
+	print("Player destroyed!")
+
+	velocity = Vector2.ZERO
+	set_physics_process(false)
+	set_process(false)
+
+	queue_free()
+
+func take_damage(amount: int) -> void:
+	if current_state != "PLAY":
+		return
+
+	if immunity or health <= 0:
+		return
+
+	health = maxi(0, health - amount)
+	print("Player took damage! Damage: ", amount)
+	print("Player took damage! Health: ", health)
+
+	if health == 0:
+		die()
+		return
+
+	immunity = true
+	immunity_timer = IMMUNITY_DURATION
+	
+	# Start knockback in the opposite direction.
+	controls_disabled = true
+	knockback_timer = KNOCKBACK_DURATION
+
+	knockback_start_position = global_position
+	knockback_target_position = global_position + Vector2(
+		-KNOCKBACK_DISTANCE * facing_direction, 0)
+		
+	# Play the damage animation during knockback.
+	sprite.play("damage_taken")
+	effectsprite.visible = true
+	effectsprite.play("damage_effect")
+	
 
 func fire_buster() -> void:
 	if fire_timer > 0.0:
@@ -59,6 +121,8 @@ func _ready() -> void:
 	collision_mask = 0
 	print("INTRO FALL STATE")
 	sprite.play("teleport_line")
+	effectsprite.visible = false
+	effectsprite.stop()
 
 
 func _on_animation_finished() -> void:
@@ -80,6 +144,15 @@ func _physics_process(delta: float) -> void:
 
 	if fire_timer == 0.0:
 		is_shooting = false
+		
+	# Update the immunity timer.
+	if immunity:
+		immunity_timer -= delta
+
+		if immunity_timer <= 0.0:
+			immunity_timer = 0.0
+			immunity = false
+			print("Player immunity ended!")
 
 	# Apply gravity only when not climbing.
 	if not is_on_floor() and not is_climbing:
@@ -114,6 +187,39 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0.0
 		move_and_slide()
 		return
+		
+	# =========================================================
+	# KNOCKBACK
+	# =========================================================
+	if controls_disabled:
+		knockback_timer -= delta
+
+		var progress: float = 1.0 - (knockback_timer / KNOCKBACK_DURATION)
+		progress = clampf(progress, 0.0, 1.0)
+
+		# Apply horizontal knockback.
+		velocity.x = (
+			-KNOCKBACK_DISTANCE / KNOCKBACK_DURATION
+		) * facing_direction
+
+		# Preserve gravity.
+		if not is_on_floor():
+			velocity.y += gravity * delta
+		else:
+			velocity.y = 0.0
+
+		move_and_slide()
+
+		if knockback_timer <= 0.0:
+			controls_disabled = false
+			velocity.x = 0.0
+
+		return
+		
+	if not controls_disabled:
+		effectsprite.visible = false
+		effectsprite.stop()
+
 
 	# Start climbing when pressing up or down near a ladder.
 	if near_ladder and current_ladder and not is_climbing:
