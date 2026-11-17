@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://broevx4gk86qi"]
+
+[ext_resource type="Script" uid="uid://kuppas55kn1l" path="res://scripts/test/test_scene.gd" id="1_lpkca"]
+[ext_resource type="PackedScene" uid="uid://bui14316hvgmx" path="res://scenes/enemies/bunby_heli.tscn" id="2_lpkca"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jigqq"]
+size = Vector2(1000, 20)
+
+[node name="Test Scene" type="Node2D"]
+script = ExtResource("1_lpkca")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, 172)
+
+[node name="ColorRect" type="ColorRect" parent="StaticBody2D"]
+offset_right = 1000.0
+offset_bottom = 20.0
+color = Color(0.87368584, 0.537371, 0.3870231, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(500, 10)
+shape = SubResource("RectangleShape2D_jigqq")
+debug_color = Color(0.6591843, 0.6609283, 0.9276069, 0.41960785)
+
+[node name="BunbyHeli" parent="." instance=ExtResource("2_lpkca")]
+position = Vector2(900, 140)

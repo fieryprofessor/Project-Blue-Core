@@ -273,9 +273,10 @@ position_smoothing_enabled = true
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 process_mode = 3
 sprite_frames = SubResource("SpriteFrames_lvxji")
-animation = &"damage_taken"
+animation = &"idle"
 
 [node name="EffectSprite" type="AnimatedSprite2D" parent="."]
+visible = false
 sprite_frames = SubResource("SpriteFrames_dovo2")
 animation = &"damage_effect"
 frame_progress = 0.233739

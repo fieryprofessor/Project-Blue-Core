@@ -4,7 +4,7 @@ const SPEED: float = 100.0
 const JUMP_VELOCITY: float = -300.0
 const CLIMB_SPEED: float = 80.0
 const FIRE_COOLDOWN: float = 0.25
-const KNOCKBACK_DISTANCE: float = 5.0
+const KNOCKBACK_DISTANCE: float = 16.875
 const KNOCKBACK_DURATION: float = 0.5
 
 var controls_disabled: bool = false

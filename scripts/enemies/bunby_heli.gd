@@ -12,31 +12,95 @@ extends CharacterBody2D
 
 var is_dead: bool = false
 var player_detected: bool = false
-
+var attack_delay_timer: float = 0.0
+const PATROL_SPEED: float = 80.0
+const ATTACK_SPEED: float = 200.0
+const ATTACK_DISTANCE: float = 56.0
+const POSITION_TOLERANCE: float = 2.0
+const ATTACK_DELAY: float = 1.0
+var attack_start_position: Vector2
+var attack_target_position: Vector2
+var attack_state: String = "PATROL"
+var original_y: float = 0.0
 
 func _ready() -> void:
 	animated_sprite.play("flying")
-	
-func _physics_process(_delta: float) -> void:
+	original_y = global_position.y
+
+func _physics_process(delta: float) -> void:
 	if is_dead:
 		return
 
-	if player_detected:
-		velocity.x = 0.0
-		var player = get_tree().get_first_node_in_group("player")
-		if player:
+	var player = get_tree().get_first_node_in_group("player")
+
+	if not player:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
+
+	if not player_detected:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
+
+	match attack_state:
+
+		"PATROL":
+			# Face the player.
 			if player.global_position.x < global_position.x:
 				facing_direction = -1
 				animated_sprite.flip_h = false
 			else:
 				facing_direction = 1
 				animated_sprite.flip_h = true
-	else:
-		velocity.x = move_speed * facing_direction
 
-	velocity.y = 0.0
+			# Move horizontally toward the player.
+			velocity.x = facing_direction * PATROL_SPEED
+			velocity.y = 0.0
 
-	move_and_slide()
+			move_and_slide()
+
+			# Check whether the player is close enough to attack.
+			var distance_x: float = abs(
+				player.global_position.x - global_position.x
+			)
+
+			if distance_x <= ATTACK_DISTANCE:
+				attack_start_position = global_position
+				attack_target_position = player.global_position
+				attack_state = "ATTACK"
+
+		"ATTACK":
+			# Move diagonally toward the player's position
+			# captured when the attack began.
+			var direction: Vector2 = (
+				attack_target_position - global_position
+			).normalized()
+
+			velocity = direction * ATTACK_SPEED
+			move_and_slide()
+			# Exit dive if target reached OR if blocked by a wall/floor/ceiling
+			if global_position.distance_to(attack_target_position) <= ATTACK_SPEED * delta or is_on_floor() or is_on_wall() or is_on_ceiling():
+				velocity = Vector2.ZERO
+				attack_state = "RECOVER"
+
+
+		"RECOVER":
+			# Return to the original flying height.
+			var vertical_distance: float = (
+				attack_start_position.y - global_position.y
+			)
+
+			if abs(vertical_distance) <= POSITION_TOLERANCE:
+				global_position.y = attack_start_position.y
+				velocity = Vector2.ZERO
+				attack_state = "PATROL"
+			else:
+				velocity.x = 0.0
+				velocity.y = sign(vertical_distance) * PATROL_SPEED
+
+			move_and_slide()
+
 
 
 func take_damage(amount: int) -> void:
