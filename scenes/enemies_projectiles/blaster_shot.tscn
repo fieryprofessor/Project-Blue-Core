@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bp4vbjgb53wum"]
+
+[ext_resource type="Script" uid="uid://uhquce7mdfxx" path="res://scripts/enemies_projectiles/blaster_shot.gd" id="1_128ab"]
+[ext_resource type="Texture2D" uid="uid://s5igquej4ilt" path="res://assets/mm1pngs/mm1enemysheet.png" id="1_kg5sw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_128ab"]
+radius = 3.0
+
+[node name="BlasterShot" type="Area2D"]
+script = ExtResource("1_128ab")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_kg5sw")
+region_enabled = true
+region_rect = Rect2(292, 73, 6, 6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_128ab")
+debug_color = Color(0.44437748, 0.47271496, 0.94753593, 0.41960785)

@@ -145,13 +145,18 @@ func _physics_process(delta: float) -> void:
 	if fire_timer == 0.0:
 		is_shooting = false
 		
-	# Update the immunity timer.
+	# Update the immunity timer and flicker constantly.
 	if immunity:
 		immunity_timer -= delta
+		if int(immunity_timer * 20.0) % 2 == 0:
+			sprite.modulate.a = 0.3
+		else:
+			sprite.modulate.a = 0.8
 
 		if immunity_timer <= 0.0:
 			immunity_timer = 0.0
 			immunity = false
+			sprite.modulate.a = 1.0
 			print("Player immunity ended!")
 
 	# Apply gravity only when not climbing.

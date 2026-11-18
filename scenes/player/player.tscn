@@ -276,7 +276,6 @@ sprite_frames = SubResource("SpriteFrames_lvxji")
 animation = &"idle"
 
 [node name="EffectSprite" type="AnimatedSprite2D" parent="."]
-visible = false
 sprite_frames = SubResource("SpriteFrames_dovo2")
 animation = &"damage_effect"
 frame_progress = 0.233739

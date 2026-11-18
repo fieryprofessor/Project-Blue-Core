@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://broevx4gk86qi"]
 
 [ext_resource type="Script" uid="uid://kuppas55kn1l" path="res://scripts/test/test_scene.gd" id="1_lpkca"]
-[ext_resource type="PackedScene" uid="uid://bui14316hvgmx" path="res://scenes/enemies/bunby_heli.tscn" id="2_lpkca"]
 [ext_resource type="AudioStream" uid="uid://17xtu3lib05n" path="res://assets/mm1ost/testing songs/A04 - Floating Fort.mp3" id="3_lpkca"]
+[ext_resource type="PackedScene" uid="uid://dmotpk7tijm1s" path="res://scenes/enemies/blaster.tscn" id="3_omf4g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jigqq"]
 size = Vector2(1000, 20)
@@ -23,8 +23,8 @@ position = Vector2(500, 10)
 shape = SubResource("RectangleShape2D_jigqq")
 debug_color = Color(0.6591843, 0.6609283, 0.9276069, 0.41960785)
 
-[node name="BunbyHeli" parent="." instance=ExtResource("2_lpkca")]
-position = Vector2(542, 122)
-
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_lpkca")
+
+[node name="Blaster" parent="." instance=ExtResource("3_omf4g")]
+position = Vector2(366, 126)
