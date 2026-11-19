@@ -22,3 +22,5 @@ position = Vector2(-0.3, 0)
 scale = Vector2(1.06, 0.8)
 shape = SubResource("CapsuleShape2D_xuakf")
 debug_color = Color(0.33098155, 0.00060798763, 0.9010121, 0.41960785)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

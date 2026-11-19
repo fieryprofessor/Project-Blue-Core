@@ -17,3 +17,5 @@ region_rect = Rect2(292, 73, 6, 6)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_128ab")
 debug_color = Color(0.44437748, 0.47271496, 0.94753593, 0.41960785)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

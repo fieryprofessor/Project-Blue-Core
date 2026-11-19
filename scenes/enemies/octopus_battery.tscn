@@ -1,0 +1,103 @@
+[gd_scene load_steps=12 format=3 uid="uid://evy5uj65kcjd"]
+
+[ext_resource type="Script" uid="uid://b3b8at531xuyx" path="res://scripts/enemies/octopus_battery.gd" id="1_s0p6e"]
+[ext_resource type="Texture2D" uid="uid://s5igquej4ilt" path="res://assets/mm1pngs/mm1enemysheet.png" id="1_xnokd"]
+[ext_resource type="Texture2D" uid="uid://rcxmywe8ewyl" path="res://assets/mm1pngs/mm1weaponsheet.png" id="2_r6p3o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xnokd"]
+size = Vector2(14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnokd"]
+atlas = ExtResource("1_xnokd")
+region = Rect2(33, 68, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6p3o"]
+atlas = ExtResource("1_xnokd")
+region = Rect2(14, 68, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bamrn"]
+atlas = ExtResource("2_r6p3o")
+region = Rect2(81, 181, 26, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45lc3"]
+atlas = ExtResource("2_r6p3o")
+region = Rect2(116, 223, 16, 17)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0p6e"]
+atlas = ExtResource("1_xnokd")
+region = Rect2(52, 68, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ry76d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnokd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6p3o")
+}],
+"loop": false,
+"name": &"closing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_bamrn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45lc3")
+}],
+"loop": false,
+"name": &"death",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6p3o")
+}],
+"loop": true,
+"name": &"dormant",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0p6e")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnokd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0p6e")
+}],
+"loop": false,
+"name": &"opening",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s0p6e"]
+size = Vector2(16, 16)
+
+[node name="OctopusBattery" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_s0p6e")
+start_direction = Vector2(0, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xnokd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ry76d")
+animation = &"closing"
+
+[node name="DamageArea" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+shape = SubResource("RectangleShape2D_s0p6e")
+debug_color = Color(0.5594262, 0.55309296, 0.26348746, 0.41960785)
